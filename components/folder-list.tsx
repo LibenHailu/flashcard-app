@@ -21,11 +21,7 @@ export function FolderList({ folders }: FolderListProps) {
         folders.map((folder) => (
           <div
             key={folder.id}
-            className={`flex w-full cursor-pointer items-center justify-between rounded-lg border p-4 transition-colors ${
-              true
-                ? "border-accent bg-secondary"
-                : "border-border bg-card hover:bg-secondary"
-            }`}
+            className="flex w-full cursor-pointer items-center justify-between rounded-lg border border-accent bg-secondary p-4 transition-colors"
             onClick={() => router.push(`/folders/${folder.id}`)}
           >
             <div className="flex items-center gap-3">
