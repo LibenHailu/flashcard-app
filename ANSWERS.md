@@ -72,9 +72,6 @@ The same **folder + id** constraint is used on update/delete in `app/actions/fla
 | Tool | What I asked | What it gave | What I changed |
 |------|----------------|--------------|----------------|
 | **Cursor (Claude)** | Fix Prisma-related 404 on home page | Pointed out wrong client import (`@prisma/client` vs generated output), missing Prisma 7 SQLite adapter, wrong model accessor (`folders` vs `folder`) | Applied fixes in `lib/prisma.ts` and `app/page.tsx`; ran `prisma generate` |
-| **Cursor** | List folders + create button on home page | Server action + form pattern | Kept pattern; later refactored into `FolderForm` / `FolderList` components |
-| **Cursor** | Fix flashcard form + create page | Server actions, `FlashcardForm` with `folderId`, edit route | Added `updateFlashcard`, edit page, and shared form for create/edit |
-| **Cursor** | Bind folder detail page | `FlashcardList`, links to create/edit, delete actions | Integrated flip-card study UI on top of list |
 | **Cursor** | Flip-card study transitions | `Flashcard` component + deck navigation in `FlashcardList` | Used `<button>` + `aria-label` for accessibility; `key={currentCard.id}` so flip state resets when changing cards; restored edit/delete wiring |
 
 **Example change (flip card list):** AI suggested a flip component with a clickable `<div>`. I switched the flip target to a **`<button type="button">`** with an **`aria-label`** that toggles between “Show question” and “Show answer”, and remounted the card with **`key={currentCard.id}`** when navigating so the card does not stay flipped on the back when moving to the next item.
